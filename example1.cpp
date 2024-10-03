@@ -1,20 +1,19 @@
 #include<iostream>
 using namespace std; 
-  
-// One function works for all data types.  This would work 
-// even for user defined types if operator '>' is overloaded 
 
+// Template function works for all data types, including user-defined types if '>' is overloaded
 template <typename T> 
 T myMax(T x, T y) 
 { 
-   return (x > y)? x: y; 
+   return (x > y) ? x : y; 
 } 
-  
+
 int main() 
 { 
-  cout << myMax<int>(3, 7) << endl;  // Call myMax for int 
-  cout << myMax<double>(3.0, 7.0) << endl; // call myMax for double 
-  cout << myMax<char>('g', 'e') << endl;   // call myMax for char 
+  // Type deduction allows us to omit explicit template arguments
+  cout << myMax(3, 7) << endl;       // Call myMax for int
+  cout << myMax(3.0, 7.0) << endl;   // Call myMax for double
+  cout << myMax('g', 'e') << endl;   // Call myMax for char
   
   return 0; 
-}
+} 
